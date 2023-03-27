@@ -9,5 +9,9 @@ class AppState {
 
   const AppState(this._count);
 
-  const AppState.initState() : _count = 0;
+  const AppState.initialState() : _count = 0;
+
+  AppState copyWith(count) {
+    return AppState(count ?? _count);
+  }
 }

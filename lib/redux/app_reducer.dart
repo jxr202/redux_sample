@@ -5,9 +5,9 @@ import 'package:redux_sample/redux/app_state.dart';
 AppState counterReducer(AppState state, action) {
   switch (action) {
     case AppAction.add:
-      return AppState(state.count + 1);
+      return state.copyWith(state.count + 1);
     case AppAction.dec:
-      return AppState(state.count - 1);
+      return state.copyWith(state.count - 1);
     default:
       return state;
   }

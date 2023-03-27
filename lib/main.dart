@@ -2,11 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter_redux/flutter_redux.dart';
 import 'package:redux/redux.dart';
 import 'package:redux_sample/home_page.dart';
-import 'package:redux_sample/redux/app_reducer.dart';
-import 'package:redux_sample/redux/app_state.dart';
+import 'package:redux_sample/redux/app.dart';
 
 void main() {
-  final store = Store<AppState>(counterReducer, initialState: const AppState.initState());
+  /// Store 三要素
+  final store = Store<AppState>(counterReducer, initialState: const AppState.initialState());
   runApp(MyApp(store));
 }
 
@@ -21,10 +21,8 @@ class MyApp extends StatelessWidget {
       store: store,
       child: MaterialApp(
         title: 'Flutter Demo',
-        theme: ThemeData(
-          primarySwatch: Colors.blue,
-        ),
-        home: const HomePage(title: 'Flutter Demo Home Page'),
+        theme: ThemeData(primarySwatch: Colors.blue),
+        home: const MyHomePage(title: 'Home Page'),
       ),
     );
   }
